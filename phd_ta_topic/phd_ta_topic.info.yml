@@ -1,0 +1,5 @@
+name: 'PhD TA Topic'
+type: module
+description: 'PhD TA Topic Content Type'
+core: 8.x
+package: 'IITB Content Type'

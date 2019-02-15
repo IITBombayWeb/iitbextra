@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - phd_ta_topic
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'PhD TA Topic'
+type: phd_ta_topic
+description: 'Create a new topic offered for research for institute funded PhD scholarships under the TA scheme.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

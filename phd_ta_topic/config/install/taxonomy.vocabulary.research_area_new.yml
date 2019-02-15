@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - phd_ta_topic
+name: 'Research Area'
+vid: research_area_new
+description: 'Testing Research Area'
+hierarchy: 1
+weight: 0

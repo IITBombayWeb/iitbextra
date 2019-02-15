@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_facultynode
+    - node.type.fac_page
+    - node.type.mtechproj
+  enforced:
+    module:
+      - mtechproj
+id: node.mtechproj.field_facultynode
+field_name: field_facultynode
+entity_type: node
+bundle: mtechproj
+label: 'Name of Faculty'
+description: 'Choose the Name of the faculty, by clicking on the name.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      fac_page: fac_page
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
