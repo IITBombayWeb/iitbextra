@@ -1,0 +1,51 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - phd_ta_topic
+id: phd_ta_topics
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - CSV
+migration_group: iitbmigration
+label: 'Phd TA Topic Content Type'
+source:
+  plugin: csv
+  path: /var/www/migrationdata/csv/phd_ta_topic.csv
+  delimiter: ','
+  enclosure: '"'
+  header_row_count: 1
+  keys:
+    - id
+process:
+  type:
+    plugin: default_value
+    default_value: phd_ta_topic
+  title: title
+  body/value: body
+  body/format:
+    plugin: default_value
+    default_value: basic_html
+  field_facultynode:
+    plugin: entity_lookup
+    entity_type: node
+    bundle: fac_page
+    source: name_of_faculty
+  field_research_area_new:
+    -
+      plugin: explode
+      delimiter: ' | '
+      source: research_area
+    -
+      plugin: entity_lookup
+      entity_type: taxonomy_term
+      bundle: research_area_new 
+destination:
+  plugin: 'entity:node'
+  bundle: phd_ta_topic
+migration_dependencies:
+  required: {  }
+  optional: {  }

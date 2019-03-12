@@ -3,14 +3,17 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.mtech_seminar_topic.body
-    - node.type.mtech_seminar_topic
+    - field.field.node.meeting_minutes.body
+    - node.type.meeting_minutes
+  enforced:
+    module:
+      - meeting_minutes
   module:
     - text
     - user
-id: node.mtech_seminar_topic.teaser
+id: node.meeting_minutes.teaser
 targetEntityType: node
-bundle: mtech_seminar_topic
+bundle: meeting_minutes
 mode: teaser
 content:
   body:

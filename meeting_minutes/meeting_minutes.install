@@ -3,7 +3,7 @@
 /**
 * Implements hook_uninstall().
 */
-function mtech_seminar_topic_uninstall() {
+function meeting_minutes_uninstall() {
   // Load services.
   $queryFactory = \Drupal::service('entity.query');
   $nodeStorage  = \Drupal::entityManager()->getStorage('node');

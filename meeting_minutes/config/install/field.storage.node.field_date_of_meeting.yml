@@ -3,22 +3,23 @@ status: true
 dependencies:
   enforced:
     module:
-      - mtechproj
+      - meeting_minutes
   module:
+    - datetime
     - field_permissions
     - node
 third_party_settings:
   field_permissions:
     permission_type: public
-id: node.field_facultynode
-field_name: field_facultynode
+id: node.field_date_of_meeting
+field_name: field_date_of_meeting
 entity_type: node
-type: entity_reference
+type: datetime
 settings:
-  target_type: node
-module: core
+  datetime_type: datetime
+module: datetime
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

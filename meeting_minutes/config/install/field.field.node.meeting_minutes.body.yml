@@ -3,16 +3,16 @@ status: true
 dependencies:
   config:
     - field.storage.node.body
-    - node.type.mtech_seminar_topic
+    - node.type.meeting_minutes
   enforced:
     module:
-      - mtech_seminar_topic
+      - meeting_minutes
   module:
     - text
-id: node.mtech_seminar_topic.body
+id: node.meeting_minutes.body
 field_name: body
 entity_type: node
-bundle: mtech_seminar_topic
+bundle: meeting_minutes
 label: Body
 description: ''
 required: false

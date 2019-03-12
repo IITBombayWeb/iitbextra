@@ -5,6 +5,9 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.mtechproj.body
     - node.type.mtechproj
+  enforced:
+    module:
+      - mtechproj
   module:
     - text
     - user

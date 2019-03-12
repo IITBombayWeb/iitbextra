@@ -3,8 +3,11 @@ status: true
 dependencies:
   config:
     - field.field.node.mtechproj.body
-    - field.field.node.mtechproj.field_facultynode
+    - field.field.node.mtechproj.field_mtechpt_name_of_faculty
     - node.type.mtechproj
+  enforced:
+    module:
+      - mtechproj
   module:
     - text
     - user
@@ -20,8 +23,8 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_facultynode:
-    weight: 102
+  field_mtechpt_name_of_faculty:
+    weight: 103
     label: above
     settings:
       link: true

@@ -3,8 +3,11 @@ status: true
 dependencies:
   config:
     - field.field.node.mtechproj.body
-    - field.field.node.mtechproj.field_facultynode
+    - field.field.node.mtechproj.field_mtechpt_name_of_faculty
     - node.type.mtechproj
+  enforced:
+    module:
+      - mtechproj
   module:
     - path
     - text
@@ -28,8 +31,8 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_facultynode:
-    weight: 122
+  field_mtechpt_name_of_faculty:
+    weight: 123
     settings:
       match_operator: CONTAINS
       size: 60

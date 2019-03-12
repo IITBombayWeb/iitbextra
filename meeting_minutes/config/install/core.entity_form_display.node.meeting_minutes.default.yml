@@ -2,15 +2,22 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.mtech_seminar_topic.body
-    - field.field.node.mtech_seminar_topic.field_facultynode
-    - node.type.mtech_seminar_topic
+    - field.field.node.meeting_minutes.body
+    - field.field.node.meeting_minutes.field_date_of_meeting
+    - field.field.node.meeting_minutes.field_file_attachment
+    - field.field.node.meeting_minutes.field_name_of_the_committee
+    - node.type.meeting_minutes
+  enforced:
+    module:
+      - meeting_minutes
   module:
+    - datetime
+    - file
     - path
     - text
-id: node.mtech_seminar_topic.default
+id: node.meeting_minutes.default
 targetEntityType: node
-bundle: mtech_seminar_topic
+bundle: meeting_minutes
 mode: default
 content:
   body:
@@ -28,14 +35,24 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_facultynode:
+  field_date_of_meeting:
     weight: 122
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: datetime_default
+    region: content
+  field_file_attachment:
+    weight: 124
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+  field_name_of_the_committee:
+    weight: 123
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   langcode:
     type: language_select

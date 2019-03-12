@@ -1,0 +1,9 @@
+name: 'IITB Meeting Minutes Migration'
+type: module
+description: 'Import/Migrate data from CSV into Meeting Minutes Content'
+core: 8.x
+package: 'IITB Migration'
+dependencies:
+  - migrate_tools:migrate_tools
+  - migrate_file:migrate_file
+  - meeting_minutes:meeting_minutes
