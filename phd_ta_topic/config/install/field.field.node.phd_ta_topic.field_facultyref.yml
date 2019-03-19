@@ -2,14 +2,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_facultynode
+    - field.storage.node.field_facultyref
     - node.type.fac_page
     - node.type.phd_ta_topic
   enforced:
     module:
       - phd_ta_topic
-id: node.phd_ta_topic.field_facultynode
-field_name: field_facultynode
+id: node.phd_ta_topic.field_facultyref
+field_name: field_facultyref
 entity_type: node
 bundle: phd_ta_topic
 label: 'Name of Faculty'

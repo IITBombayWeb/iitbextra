@@ -3,7 +3,7 @@ status: true
 dependencies:
   config:
     - field.field.node.phd_ta_topic.body
-    - field.field.node.phd_ta_topic.field_facultynode
+    - field.field.node.phd_ta_topic.field_facultyref
     - field.field.node.phd_ta_topic.field_research_area_new
     - node.type.phd_ta_topic
   enforced:
@@ -24,7 +24,7 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_facultynode:
+  field_facultyref:
     weight: 102
     label: above
     settings:

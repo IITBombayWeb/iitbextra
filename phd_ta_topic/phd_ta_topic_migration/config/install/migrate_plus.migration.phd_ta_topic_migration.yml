@@ -29,7 +29,7 @@ process:
   body/format:
     plugin: default_value
     default_value: basic_html
-  field_facultynode:
+  field_facultyref:
     plugin: entity_lookup
     entity_type: node
     bundle: fac_page
