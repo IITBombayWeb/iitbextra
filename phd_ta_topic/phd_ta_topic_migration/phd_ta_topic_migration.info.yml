@@ -2,7 +2,7 @@ name: 'PhD TA Topic Migration'
 type: module
 description: 'Import/Migrate data from CSV into PhD TA Topic Content'
 core: 8.x
-package: 'IITB Migration'
+package: 'IITB Extra Migration'
 dependencies:
   - migrate_tools:migrate_tools
   - acadmix_faculty:acadmix_faculty

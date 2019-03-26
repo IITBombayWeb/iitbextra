@@ -2,7 +2,7 @@ name: 'Meeting Minutes'
 type: module
 description: 'Meeting Minutes Content Type'
 core: 8.x
-package: 'IITB Content Type'
+package: 'IITB Extra Content Type'
 dependencies:
   - drupal:menu_ui 
   - drupal:node
