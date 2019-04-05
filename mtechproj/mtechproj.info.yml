@@ -1,8 +1,8 @@
-name: 'M.Tech Project Topic'
+name: 'IITB extra m.tech project topic content type'
 type: module
-description: 'M.Tech Project Topic Content Type'
+description: 'M.tech project topic content type'
 core: 8.x
-package: 'IITB Content Type'
+package: 'IITB extra content type'
 dependencies:
   - drupal:menu_ui
   - drupal:node

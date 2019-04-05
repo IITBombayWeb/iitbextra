@@ -1,8 +1,8 @@
-name: 'PhD TA Topic'
+name: 'IITB extra phd ta topic content type'
 type: module
-description: 'PhD TA Topic Content Type'
+description: 'Phd ta topic content type'
 core: 8.x
-package: 'IITB Content Type'
+package: 'IITB extra content type'
 dependencies:
   - drupal:menu_ui
   - drupal:node

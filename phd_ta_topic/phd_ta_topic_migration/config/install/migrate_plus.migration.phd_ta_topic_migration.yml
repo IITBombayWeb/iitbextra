@@ -3,8 +3,8 @@ status: true
 dependencies:
   enforced:
     module:
-      - phd_ta_topic
-id: phd_ta_topics
+      - phd_ta_topic_migration
+id: phd_ta_topic_migration
 class: null
 field_plugin_method: null
 cck_plugin_method: null
