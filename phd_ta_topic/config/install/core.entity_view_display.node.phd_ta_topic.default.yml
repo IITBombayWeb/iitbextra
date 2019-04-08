@@ -42,7 +42,7 @@ bundle: phd_ta_topic
 mode: default
 content:
   body:
-    label: hidden
+    label: above
     type: text_default
     weight: 1
     settings: {  }
