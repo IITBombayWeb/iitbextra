@@ -14,7 +14,7 @@ migration_group: iitbmigration
 label: 'Phd TA Topic Content Type'
 source:
   plugin: csv
-  path: /var/www/migrationdata/csv/phd_ta_topic.csv
+  path: /var/www/migrationdata/csv/phdtatopic-sample.csv
   delimiter: ','
   enclosure: '"'
   header_row_count: 1

@@ -14,7 +14,7 @@ migration_group: iitbmigration
 label: 'Mtech Project Topic content migration'
 source:
   plugin: csv
-  path: /var/www/migrationdata/csv/mtechproj.csv
+  path: /var/www/migrationdata/csv/mtechproj-sample.csv
   delimiter: ','
   enclosure: '"'
   header_row_count: 1
