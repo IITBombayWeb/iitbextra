@@ -4,7 +4,7 @@ dependencies:
   config:
     - field.field.node.phd_ta_topic.body
     - field.field.node.phd_ta_topic.field_facultyref
-    - field.field.node.phd_ta_topic.field_research_area_new
+    - field.field.node.phd_ta_topic.field_research_area_phdtatopic
     - node.type.phd_ta_topic
   enforced:
     module:
@@ -41,7 +41,7 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
-  field_research_area_new:
+  field_research_area_phdtatopic:
     weight: 123
     settings:
       match_operator: CONTAINS

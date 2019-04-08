@@ -4,7 +4,7 @@ dependencies:
   config:
     - field.field.node.phd_ta_topic.body
     - field.field.node.phd_ta_topic.field_facultyref
-    - field.field.node.phd_ta_topic.field_research_area_new
+    - field.field.node.phd_ta_topic.field_research_area_phdtatopic
     - node.type.phd_ta_topic
   enforced:
     module:
@@ -35,7 +35,7 @@ third_party_settings:
         - links
         - body
         - field_facultyref
-        - field_research_area_new
+        - field_research_area_phdtatopic
 id: node.phd_ta_topic.default
 targetEntityType: node
 bundle: phd_ta_topic
@@ -113,7 +113,7 @@ content:
             fi-def-at: false
     type: entity_reference_label
     region: ds_content
-  field_research_area_new:
+  field_research_area_phdtatopic:
     weight: 3
     label: above
     settings:
