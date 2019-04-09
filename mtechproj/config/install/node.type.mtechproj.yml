@@ -8,8 +8,9 @@ dependencies:
     - menu_ui
 third_party_settings:
   menu_ui:
-    available_menus: {  }
-    parent: ''
+    available_menus:
+      - main
+    parent: 'main:'
 name: 'M.Tech Project Topic'
 type: mtechproj
 description: 'Guided M.Tech Project topic and details'
