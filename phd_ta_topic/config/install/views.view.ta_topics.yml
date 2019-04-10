@@ -3,7 +3,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_facultyref
-    - field.storage.node.field_research_area_new
+    - field.storage.node.field_research_area
     - node.type.phd_ta_topic
   module:
     - datatables
@@ -69,7 +69,7 @@ display:
           columns:
             title: title
             field_facultyref: field_facultyref
-            field_research_area_new: field_research_area_new
+            field_research_area_phdtatopic: field_research_area_phdtatopic
           info:
             title:
               sortable: 0
@@ -83,7 +83,7 @@ display:
               separator: ''
               empty_column: 0
               responsive: ''
-            field_research_area_new:
+            field_research_area_phdtatopic:
               align: ''
               separator: ''
               empty_column: 0
@@ -220,10 +220,10 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_research_area_new:
-          id: field_research_area_new
-          table: node__field_research_area_new
-          field: field_research_area_new
+        field_research_area_phdtatopic:
+          id: field_research_area_phdtatopic
+          table: node__field_research_area_phdtatopic
+          field: field_research_area_phdtatopic
           relationship: none
           group_type: group
           admin_label: ''
@@ -335,7 +335,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_facultyref'
-        - 'config:field.storage.node.field_research_area_new'
+        - 'config:field.storage.node.field_research_area'
   block_1:
     display_plugin: block
     id: block_1
@@ -352,7 +352,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_facultyref'
-        - 'config:field.storage.node.field_research_area_new'
+        - 'config:field.storage.node.field_research_area'
   page_1:
     display_plugin: page
     id: page_1
@@ -370,4 +370,4 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_facultyref'
-        - 'config:field.storage.node.field_research_area_new'
+        - 'config:field.storage.node.field_research_area'
