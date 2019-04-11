@@ -5,5 +5,4 @@ core: 8.x
 package: 'IITB extra migration'
 dependencies:
   - migrate_tools:migrate_tools
-  - acadmix_faculty:acadmix_faculty
   - phd_ta_topic:phd_ta_topic

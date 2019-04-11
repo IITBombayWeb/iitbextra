@@ -12,48 +12,188 @@ dependencies:
       - meeting_minutes
   module:
     - datetime
+    - ds
     - file
     - options
     - text
     - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+          ds_content: {  }
+    regions:
+      ds_content:
+        - links
+        - field_date_of_meeting
+        - field_name_of_the_committee
+        - body
+        - field_file_attachment
 id: node.meeting_minutes.default
 targetEntityType: node
 bundle: meeting_minutes
 mode: default
 content:
   body:
-    label: hidden
+    label: above
     type: text_default
-    weight: 101
+    weight: 3
     settings: {  }
-    third_party_settings: {  }
-    region: content
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: Details
+            prefix: ''
+            lbw: true
+            lbw-el: div
+            lbw-cl: 'col-sm-2 fw-bold'
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: 'row mb-10'
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: div
+            fi-cl: col-sm-10
+            fi-at: ''
+            suffix: ''
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
+    region: ds_content
   field_date_of_meeting:
-    weight: 102
+    weight: 1
     label: above
     settings:
-      format_type: medium
       timezone_override: ''
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
+      date_format: Y-m-d
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw: true
+            lbw-el: div
+            lbw-cl: 'col-sm-2 fw-bold'
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: 'row mb-10'
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: div
+            fi-cl: col-sm-10
+            fi-at: ''
+            suffix: ''
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
+    type: datetime_custom
+    region: ds_content
   field_file_attachment:
-    weight: 104
+    weight: 4
     label: above
     settings:
       use_description_as_link_text: true
-    third_party_settings: {  }
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw: true
+            lbw-el: div
+            lbw-cl: 'col-sm-2 fw-bold'
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: 'row mb-10'
+            ow-at: ''
+            fis: true
+            fis-el: ul
+            fis-cl: 'col-sm-10 list-unstyled'
+            fis-at: ''
+            fi: true
+            fi-el: li
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis-def-at: false
+            fi-def-at: false
     type: file_default
-    region: content
+    region: ds_content
   field_name_of_the_committee:
-    weight: 103
+    weight: 2
     label: above
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw: true
+            lbw-el: div
+            lbw-cl: 'col-sm-2 fw-bold'
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: 'row mb-10'
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: div
+            fi-cl: col-sm-10
+            fi-at: ''
+            suffix: ''
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
     type: list_default
-    region: content
+    region: ds_content
   links:
-    weight: 100
-    region: content
+    weight: 0
+    region: ds_content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   langcode: true

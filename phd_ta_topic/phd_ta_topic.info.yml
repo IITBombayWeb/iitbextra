@@ -12,3 +12,4 @@ dependencies:
   - drupal:path
   - field_permissions:field_permissions
   - acadmix_faculty:acadmix_faculty
+  - datatables:datatables

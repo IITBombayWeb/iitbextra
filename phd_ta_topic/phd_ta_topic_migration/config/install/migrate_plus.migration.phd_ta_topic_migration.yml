@@ -14,7 +14,7 @@ migration_group: iitbmigration
 label: 'Phd TA Topic Content Type'
 source:
   plugin: csv
-  path: /var/www/migrationdata/csv/phd_ta_topic.csv
+  path: /var/www/migrationdata/csv/phdtatopic-sample.csv
   delimiter: ','
   enclosure: '"'
   header_row_count: 1
@@ -34,7 +34,7 @@ process:
     entity_type: node
     bundle: fac_page
     source: name_of_faculty
-  field_research_area_new:
+  field_research_area_phdtatopic:
     -
       plugin: explode
       delimiter: ' | '
@@ -42,7 +42,7 @@ process:
     -
       plugin: entity_lookup
       entity_type: taxonomy_term
-      bundle: research_area_new 
+      bundle: research_area 
 destination:
   plugin: 'entity:node'
   bundle: phd_ta_topic

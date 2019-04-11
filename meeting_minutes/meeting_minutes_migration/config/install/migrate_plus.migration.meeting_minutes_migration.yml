@@ -14,7 +14,7 @@ migration_group: iitbmigration
 label: 'Meeting Minutes content migration'
 source:
   plugin: csv
-  path: /var/www/migrationdata/csv/meeting_minutes.csv
+  path: /var/www/migrationdata/csv/meetingminutes-sample.csv
   delimiter: ','
   enclosure: '"'
   header_row_count: 1
@@ -28,6 +28,10 @@ process:
     plugin: default_value
     default_value: meeting_minutes
   source_path:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: file_name
     -
       plugin: concat
       delimiter: /
