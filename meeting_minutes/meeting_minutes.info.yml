@@ -14,3 +14,4 @@ dependencies:
   - drupal:path
   - migrate_file:migrate_file
   - field_permissions:field_permissions
+  - pathauto:pathauto
