@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+  enforced:
+    module:
+      - meeting_minutes
+id: meeting_minutes_alias
+label: 'Meeting Minutes Alias'
+type: 'canonical_entities:node'
+pattern: 'meeting-minute/[node:title]'
+selection_criteria:
+  e6092827-aac7-40a8-a5f1-e945c30e97b0:
+    id: node_type
+    bundles:
+      meeting_minutes: meeting_minutes
+    negate: false
+    context_mapping:
+      node: node
+    uuid: e6092827-aac7-40a8-a5f1-e945c30e97b0
+selection_logic: and
+weight: -5
+relationships: {  }
