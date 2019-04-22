@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+  enforced:
+    module:
+      - mtechproj
+id: m_tech_project_topic_alias
+label: 'M.Tech Project Topic Alias'
+type: 'canonical_entities:node'
+pattern: 'mtech-project-topic/[node:title]'
+selection_criteria:
+  14d7dace-1f4c-4203-9421-0ce9b3e6d15f:
+    id: node_type
+    bundles:
+      mtechproj: mtechproj
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 14d7dace-1f4c-4203-9421-0ce9b3e6d15f
+selection_logic: and
+weight: -5
+relationships: {  }

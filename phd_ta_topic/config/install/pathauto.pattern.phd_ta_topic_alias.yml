@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+  enforced:
+    module:
+      - phd_ta_topic
+id: phd_ta_topic_alias
+label: 'PhD TA Topic Alias'
+type: 'canonical_entities:node'
+pattern: 'phd-ta-topic/[node:title]'
+selection_criteria:
+  1772ffee-5d5c-4af0-aceb-c49b523ddb60:
+    id: node_type
+    bundles:
+      phd_ta_topic: phd_ta_topic
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 1772ffee-5d5c-4af0-aceb-c49b523ddb60
+selection_logic: and
+weight: -5
+relationships: {  }
