@@ -4,7 +4,7 @@ dependencies:
   config:
     - field.field.node.meeting_minutes.body
     - field.field.node.meeting_minutes.field_date_of_meeting
-    - field.field.node.meeting_minutes.field_file_attachment
+    - field.field.node.meeting_minutes.field_file_attachments
     - field.field.node.meeting_minutes.field_name_of_the_committee
     - node.type.meeting_minutes
   enforced:
@@ -40,7 +40,7 @@ third_party_settings:
         - field_date_of_meeting
         - field_name_of_the_committee
         - body
-        - field_file_attachment
+        - field_file_attachments
 id: node.meeting_minutes.default
 targetEntityType: node
 bundle: meeting_minutes
@@ -118,7 +118,7 @@ content:
             fi-def-at: false
     type: datetime_custom
     region: ds_content
-  field_file_attachment:
+  field_file_attachments:
     weight: 4
     label: above
     settings:

@@ -4,7 +4,7 @@ dependencies:
   config:
     - field.field.node.meeting_minutes.body
     - field.field.node.meeting_minutes.field_date_of_meeting
-    - field.field.node.meeting_minutes.field_file_attachment
+    - field.field.node.meeting_minutes.field_file_attachments
     - field.field.node.meeting_minutes.field_name_of_the_committee
     - node.type.meeting_minutes
   enforced:
@@ -41,7 +41,7 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_file_attachment:
+  field_file_attachments:
     weight: 124
     settings:
       progress_indicator: throbber
