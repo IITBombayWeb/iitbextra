@@ -24,7 +24,7 @@ source:
     - id
   constants:
     file_source: /var/www/migrationdata/mmfiles
-    file_dest: 'public://meeting_files/'
+    file_dest: 'private://meeting_files/'
 process:
   type:
     plugin: default_value
