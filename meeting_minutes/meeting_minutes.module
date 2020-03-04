@@ -1,0 +1,122 @@
+<?php
+
+use Drupal\Core\Form;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\field\Entity\FieldConfig;
+use Drupal\migrate_tools\MigrateExecutable;
+use Drupal\migrate_tools\MigrateBatchExecutable;
+use Drupal\migrate\MigrateMessage;
+use Drupal\Core\StreamWrapper\PrivateStream;
+
+function meeting_minutes_form_config_distro_import_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  // $form['actions']['submit']['#submit'][] = 'meeting_minutes_custom_submit_migration_new_file_field';
+  $form['#validate'][] = 'meeting_minutes_custom_submit_migration_new_file_field_validate';
+  $form['#submit'][] = 'meeting_minutes_custom_submit_migration_new_file_field';
+}
+
+function meeting_minutes_custom_submit_migration_new_file_field(array &$form, FormStateInterface $form_state) {
+  // kint($form['config_sync']['module']['#options']['meeting_minutes']['name']['data']['#value']);
+  $file_name = $form['config_sync']['module']['#options']['meeting_minutes']['name']['data']['#value'];
+  if($file_name == 'IITB extra meeting minutes content type') {
+    // kint($form['config_sync']['module']['#options']['meeting_minutes']['details']['data']['#rows']);
+    $rows = $form['config_sync']['module']['#options']['meeting_minutes']['details']['data']['#rows'];
+    $new_array = array();
+    // Is config new?
+    $check_new = 'no';
+    foreach ($rows as $key => $value) {
+      if($key == 0) {
+        if($value[0]['data']['#value'] == 'New') {
+          // Yes,Config is new
+          $check_new = 'yes';
+        }
+      }
+      if($check_new == 'yes') {
+        if($value[0]['data']['#value'] == 'Changed') {
+          break;
+        }
+        array_push($new_array, $value);
+      }
+    }
+    foreach ($new_array as $keynew => $valuenew) {
+      if($keynew != 0) {
+        reset($valuenew[1]['data']['#items']);
+        $first_key = key($valuenew[1]['data']['#items']);
+        if($valuenew[0]['data']['#value'] == 'Field storage' &&  $first_key == 'field.storage.node.field_file_attachments') {
+          // Found new field storage configuration update migration here.
+          meeting_minutes_custom_submit_migration_new_file_field_run();
+        }
+      }
+    }
+  }
+}
+
+function meeting_minutes_custom_submit_migration_new_file_field_run() {
+  $field_name_old = 'file_attachment';
+  $field_name_new = 'file_attachments';
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('field.field.node.meeting_minutes.field_' . $field_name_old);
+  $config_id = $config->get('id');
+  if($config_id == 'node.meeting_minutes.field_' . $field_name_old) {
+    // Deleting field storage.
+    $field_storage = FieldStorageConfig::loadByName('node', 'field_' . $field_name_old);
+    if ($field_storage) {
+      // Delete this field.
+      $field_storage->delete();
+    }
+    // Deleting field.
+    $field_name = FieldConfig::loadByName('node', 'meeting_minutes', 'field_' . $field_name_old);
+    if ($field_name) {
+      // Delete this field.
+      $field_name->delete();
+    }
+  }
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('field.field.node.meeting_minutes.field_' . $field_name_new);
+  $config_id = $config->get('id');
+  if($config_id == 'node.meeting_minutes.field_' . $field_name_new) {
+    // If this codition is correct then config sync is already done!
+    // Run migration
+    $limit=0;
+    $update=1;
+    // Ignore dependencies
+    $force=0;
+    $options = [
+      'limit' => $limit,
+      'update' => $update,
+      'force' => $force,
+    ];
+    $migrateMessage = new MigrateMessage();
+    $migration_id = 'meeting_minutes_migration';
+    $migration = \Drupal::service('plugin.manager.migration')->createInstance($migration_id);
+    if (php_sapi_name() == 'cli') {
+      // Scrpit will run from terminal.
+      $executable = new MigrateExecutable($migration, $migrateMessage, $options);
+      $executable->import();
+    } else {
+      // Script will run from ui.
+      $executable = new MigrateBatchExecutable($migration, $migrateMessage, $options);
+      $executable->batchImport();
+    }
+  }
+}
+
+function meeting_minutes_custom_submit_migration_new_file_field_validate(array &$form, FormStateInterface $form_state) {
+  $private_file_path  = PrivateStream::basePath();
+  // Check private file path in settings.php file.
+  if($private_file_path !== '') {
+    // Check if private directory exist.
+    if(is_dir($private_file_path)) {
+      // echo ("$file is a directory");
+      $dir_writable = substr(sprintf('%o', fileperms($private_file_path)), -4) == "2775" ? "true" : "false";
+      // Check if private file folder permission is set to "drwxrwsr-x" which is same as 2775.
+      if($dir_writable == "false"){
+        // echo "Permission not set";
+        $form_state->setErrorByName('op','Private files path is set. Please set proper folder permission for private files folder (eg. "drwxrwsr-x" which is same as 2775)');
+      }
+    } else {
+      // echo ("$file is not a directory");
+      $form_state->setErrorByName('op','Private files path is not set. Please set it in settings.php file and create folder (eg. "sites/default/private")');
+    }
+  }
+}
