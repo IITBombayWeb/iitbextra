@@ -1,7 +1,9 @@
 name: 'IITB extra m.tech project topic content type'
 type: module
 description: 'M.tech project topic content type'
+# Core: Below to be removed later, Once 9.x test is successful.
 core: 8.x
+core_version_requirement: ^8 || ^9
 package: 'IITB extra content type'
 dependencies:
   - drupal:menu_ui

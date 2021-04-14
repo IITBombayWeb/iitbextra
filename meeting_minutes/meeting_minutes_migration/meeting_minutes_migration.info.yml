@@ -1,7 +1,9 @@
 name: 'IITB extra meeting minutes migration'
 type: module
 description: 'Import/migrate data from CSV into meeting minutes content'
+# Core: Below to be removed later, Once 9.x test is successful.
 core: 8.x
+core_version_requirement: ^8 || ^9
 package: 'IITB extra migration'
 dependencies:
   - migrate_tools:migrate_tools
