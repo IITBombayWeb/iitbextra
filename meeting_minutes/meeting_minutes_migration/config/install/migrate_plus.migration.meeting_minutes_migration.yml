@@ -19,8 +19,8 @@ source:
   path: /var/www/migrationdata/csv/meetingminutes-sample.csv
   delimiter: ','
   enclosure: '"'
-  header_row_count: 1
-  keys:
+  header_offset: 0
+  ids:
     - id
   constants:
     file_source: /var/www/migrationdata/mmfiles
